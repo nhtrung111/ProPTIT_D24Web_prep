@@ -1,1 +1,1 @@
-# ProPTIT_D24Web_prep
+# Tài Liệu Chuẩn Bị - Team Web D24 ProPTIT.
