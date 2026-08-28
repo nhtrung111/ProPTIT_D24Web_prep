@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94e22430-dae7-4196-bf81-51bb3fd1fd1d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/b1-nhap-mon-csdl.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/b2-co-ban-ve-thiet-ke-csdl.md" beforeDir="false" />
-    </list>
+    <list default="true" id="94e22430-dae7-4196-bf81-51bb3fd1fd1d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -70,6 +67,7 @@
       <workItem from="1787303940376" duration="7331000" />
       <workItem from="1787316139232" duration="974000" />
       <workItem from="1787912912252" duration="17000" />
+      <workItem from="1787918641384" duration="266000" />
     </task>
     <servers />
   </component>
