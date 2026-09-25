@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Profile</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #faf6f0;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+        .card {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 620px;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            border: 1px solid #eae3d9;
+        }
+        h1 { color: #3c2a21; margin-bottom: 5px; font-size: 2rem; }
+        .subtitle { color: #8c5a3c; font-style: italic; margin-top: 0; font-weight: bold; }
+        .bio { color: #4a3e3d; line-height: 1.6; margin-top: 15px; }
+        .section-title {
+            border-bottom: 1px solid #d5c7bc;
+            padding-bottom: 6px;
+            margin-top: 28px;
+            color: #3c2a21;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        ul { list-style-type: circle; padding-left: 20px; }
+        /* Hide empty <ul> tags automatically */
+        ul:empty { display: none; }
+        li { margin-bottom: 8px; color: #4a3e3d; line-height: 1.4; }
+        .contact-info { color: #4a3e3d; line-height: 1.8; }
+        .contact-info a { color: #8c5a3c; text-decoration: none; font-weight: 500; }
+        .contact-info a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+<div class="card" th:object="${profile}">
+    <!-- Primary Header Details -->
+    <h1 th:text="*{fullName}">Nguyen Hoang Trung</h1>
+    <p class="subtitle" th:text="*{title}">Culinary Enthusiast & Coffee Brewer</p>
+
+    <!-- Bio Description -->
+    <p class="bio" th:text="*{bio}">Short bio description goes here...</p>
+
+    <!-- Achievements Section -->
+    <div th:if="*{achievement != null and !#lists.isEmpty(achievement)}">
+        <!-- We use th:block to loop safely -->
+        <h3 class="section-title">Achievements</h3>
+        <ul>
+            <th:block th:each="item : *{achievement}">
+                <li th:if="${!#strings.isEmpty(item)}" th:text="${item}">Achievement item</li>
+            </th:block>
+        </ul>
+    </div>
+
+    <!-- Experience / Skills Section -->
+    <div th:if="*{experience != null and !#lists.isEmpty(experience)}">
+        <h3 class="section-title">Culinary & Brewing Skills</h3>
+        <ul>
+            <th:block th:each="item : *{experience}">
+                <li th:if="${!#strings.isEmpty(item)}" th:text="${item}">Skill item</li>
+            </th:block>
+        </ul>
+    </div>
+
+    <!-- Hobbies & Pursuits List -->
+    <div th:if="*{hobbies != null and !#lists.isEmpty(hobbies)}">
+        <h3 class="section-title">Interests & Pursuits</h3>
+        <ul>
+            <th:block th:each="hobby : *{hobbies}">
+                <li th:if="${!#strings.isEmpty(hobby)}" th:text="${hobby}">Hobby item</li>
+            </th:block>
+        </ul>
+    </div>
+
+    <!-- Contact & Social Links -->
+    <h3 class="section-title">Connect</h3>
+    <p class="contact-info">
+        Email: <a th:href="'mailto:' + *{email}" th:text="*{email}">email@example.com</a><br>
+        <span th:if="*{instagram != null and !#strings.isEmpty(instagram)}">
+            Social: <a th:href="*{instagram}" th:text="*{instagram}" target="_blank">instagram.com</a>
+        </span>
+    </p>
+</div>
+
+</body>
+</html>
